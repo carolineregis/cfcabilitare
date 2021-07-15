@@ -1,0 +1,13 @@
+@import url('https://unpkg.com/bootstrap@4.0.0/dist/css/bootstrap.min.css');
+.navbar {
+  -webkit-box-shadow: 0 8px 6px -6px rgb(20, 11, 11);
+  -moz-box-shadow: 0 8px 6px -6px rgb(20, 11, 11);
+  box-shadow: 0 8px 6px -6px rgb(20, 11, 11);
+
+  /* the rest of your styling */
+}
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

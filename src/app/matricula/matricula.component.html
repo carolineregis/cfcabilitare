@@ -1,0 +1,286 @@
+
+<div class="jumbotron justify-content-center" style="background:#116355a9;">
+  <div class="container">
+    <h3 class="d-flex justify-content-center"> MATRÍCULA </h3>
+  </div>
+
+</div>
+
+  <div class="container pt-4 pb-4">
+
+    <div class="row pb-5" style="flex-wrap: nowrap;">
+
+      <div class="col-4 align-self-center">
+        <img src="../../assets/sidebanner.png"
+             class="rounded"
+        style="max-width: 100%">
+      </div>
+
+
+      <div class="col-8 " >
+        <form #matricula="ngForm"
+            (ngSubmit)="onSubmit()"
+            action="/matricula-doc"> <!--endereço para onde os dados serao enviados-->
+
+            <div class="row">
+              <div class="col-12">
+              <div class="form-group">
+                <label for="name">Nome</label><br>
+                <input type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                [(ngModel)]="aluno.name"
+                required
+                #name="ngModel">
+
+                <div [hidden]="name.valid|| name.pristine"
+                 class="alert alert-danger">
+                 Este campo é obrigatório!
+                </div>
+              </div>
+            </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <!--CPF-->
+                <div class="form-group">
+                  <label for="cpf">CPF</label><br>
+
+                  <input type="number"
+                  class="form-control"
+                  id="cpf"
+                  name="cpf"
+                  [(ngModel)]="aluno.cpf"
+                  required
+                  #cpf="ngModel" ui-br-cpf-mask>
+
+                  <div [hidden]="cpf.valid || cpf.pristine"
+                  class="alert alert-danger">
+                  Este campo é obrigatório!
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="col-6">
+                <!--RG-->
+                <div class="form-group">
+                  <label for="rg">RG</label><br>
+                    <input type="number"
+                    class="form-control"
+                    id="rg"
+                    name="rg"
+                    [(ngModel)]="aluno.rg"
+                    required
+                    #rg="ngModel">
+
+                  <div [hidden]="rg.valid || rg.pristine"
+                  class="alert alert-danger">
+                  Este campo é obrigatório!
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <!--CIDADE-->
+                <div class="form-group">
+                  <label for="city">Cidade</label><br>
+
+                  <input type="string"
+                  class="form-control"
+                  id="city"
+                  name="city"
+                  [(ngModel)]="aluno.city"
+                  required
+                  #city="ngModel">
+
+                  <div [hidden]="city.valid || city.pristine"
+                  class="alert alert-danger">
+                  Este campo é obrigatório!
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <!--UF-->
+                <div class="form-group">
+                  <label for="uf">Estado</label><br>
+                  <input type="string"
+                  class="form-control"
+                  id="uf"
+                  name="uf"
+                  [(ngModel)]="aluno.uf"
+                  required
+                  #uf="ngModel">
+
+                <div [hidden]="uf.valid || uf.pristine"
+                class="alert alert-danger">
+                Este campo é obrigatório!
+                </div>
+              </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                  <!--Bairro-->
+                  <div class="form-group">
+                 <label for="neigh">Bairro</label><br>
+
+                 <input type="string"
+                class="form-control"
+                   id="neigh"
+                  name="neigh"
+                 [(ngModel)]="aluno.neigh"
+                required
+               #neigh="ngModel">
+
+                 <div [hidden]="neigh.valid || neigh.pristine"
+                     class="alert alert-danger">
+                     Este campo é obrigatório!
+                 </div>
+
+                </div>
+              </div>
+
+              <div class="col-6">
+                <!--Rua-->
+
+                <div class="form-group">
+                  <label for="street">Rua</label><br>
+
+                  <input type="string"
+                  class="form-control"
+                  id="street"
+                  name="street"
+                  [(ngModel)]="aluno.street"
+                  required
+                  #street="ngModel">
+
+                  <div [hidden]="street.valid || street.pristine"
+                     class="alert alert-danger">
+                    Este campo é obrigatório!
+                 </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="phone">Celular</label><br>
+
+                  <input type="string"
+                  class="form-control"
+                  id="phone"
+                  name="phone"
+                  [(ngModel)]="aluno.phone"
+                  required
+                  #phone="ngModel">
+
+                  <div [hidden]="phone.valid || phone.pristine"
+                     class="alert alert-danger">
+                    Este campo é obrigatório!
+                 </div>
+
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="mail">E-mail (opcional)</label><br>
+
+                  <input type="string"
+                  class="form-control"
+                  id="mail"
+                  name="mail"
+                  [(ngModel)]="aluno.mail"
+                  required
+                  #mail="ngModel">
+
+                  <div [hidden]="mail.valid || mail.pristine"
+                     class="alert alert-danger">
+                    Este campo é obrigatório!
+                 </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+              <div class="form-group">
+                <label for="course">Curso</label><br>
+
+                <select class="form-control" id="course"
+                required
+                [(ngModel)]="aluno.course" name="course"
+                #course="ngModel">
+
+                 <option *ngFor="let c of courses" [value]="c">{{c}}</option>
+                </select>
+
+                <div [hidden]="course.valid || course.pristine"
+                       class="alert alert-danger">
+                    Course is required
+                </div>
+
+              </div>
+            </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+              <!-- SUBMIT -->
+
+                <button type="submit"
+                      class="btn btn-success"
+                      [disabled]="!matricula.valid"
+                      (click)="openDialog()">
+                  Enviar
+              </button>
+            </div>
+            </div>
+
+
+      <!-- <div [hidden]="!submitted">
+        <h2>You submitted the following:</h2>
+        <div class="row">
+          <div class="col-xs-3">Name: </div>
+          <div class="col-xs-9">{{ aluno.name }}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-3">CPF: </div>
+          <div class="col-xs-9">{{ aluno.cpf }}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-3">RG: </div>
+          <div class="col-xs-9">{{ aluno.rg }}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-3">Curso: </div>
+          <div class="col-xs-9">{{ aluno.course }}</div>
+        </div>
+        <br>
+        <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+      </div> -->
+
+        </form>
+      </div>
+
+      </div>
+      </div>
+
+
+
+
+
+
