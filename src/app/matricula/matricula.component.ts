@@ -1,10 +1,11 @@
+import { DialogComponent } from './../dialog/dialog.component';
 import { Component, OnInit, Inject } from '@angular/core';
 import { Student } from './matricula'
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog, MatDialogConfig, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormBuilder} from '@angular/forms';
 
-export interface DialogData {
-  animal: 'panda' | 'unicorn' | 'lion';
-}
+
 
 
 @Component({
@@ -14,48 +15,62 @@ export interface DialogData {
 })
 export class MatriculaComponent {
 
-  constructor(public dialog: MatDialog) {}
 
+  matricula: FormGroup;
+  submitted = false;
 
+  SERVER_URL = '../../../backend/data'
+
+  constructor(public dialog: MatDialog,
+    private http: HttpClient,
+    private formBuilder: FormBuilder,
+    ) {
+
+    }
 
   courses = ['Categoria A', 'Categoria B', ];
 
   aluno = new Student('caroline regis', '00000000000', '000000000', 'Barreiras',
   'Bahia', 'Bandeirantes', 'av jk', 'tiny.regis@gmail.com', '(xx) 00000-0000 ', '');
 
-  submitted = false;
 
 
+  ngOnInit() {
+    this.matricula = this.formBuilder.group({
+      aluno : new Student(
+        'caroline regis', '00000000000', '000000000', 'Barreiras',
+        'Bahia', 'Bandeirantes', 'av jk', 'tiny.regis@gmail.com', '(xx) 00000-0000 ', ''
+      ),
+    })
+  }
 
-    onSubmit() {
-      this.submitted = true;
-
-    }
 
   showFormControls(form: any) {
     return form && form.controls.name &&
-    form.controls.name.value; // Dr. IQ
+    form.controls.name.value;
+  }
+
+  onSubmit() {
+    this.submitted = true;
+
   }
 
   openDialog() {
-    this.dialog.open(DialogDataExampleDialog, {
-      data: {
-        animal: 'panda'
-      }
-  
-    });
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.data = {
+      id: 1,
+      title: 'Teste'
+    }
+
+    this.dialog.open(DialogComponent, dialogConfig);
+
+
   }
 
-  
 
-}
 
-@Component({
-  selector: 'dialog-data-example-dialog',
-  templateUrl: 'dialog-data-example-dialog.html',
-})
-export class DialogDataExampleDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }
 
 

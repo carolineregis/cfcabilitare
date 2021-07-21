@@ -1,14 +1,15 @@
 
-<div class="jumbotron justify-content-center" style="background:#116355a9;">
-  <div class="container">
-    <h3 class="d-flex justify-content-center"> MATRÍCULA </h3>
+<section style="background-color: rgb(73, 167, 70); margin-top: -90px; padding-top: 100px;">
+  <div class="container pt-5 pb-5">
+    <h3 class="d-flex justify-content-center text-white"
+    style="font-family: 'Teko', sans-serif; font-size: 60pt"> MATRÍCULA </h3>
   </div>
 
-</div>
+</section>
 
-  <div class="container pt-4 pb-4">
+  <div class="container">
 
-    <div class="row pb-5" style="flex-wrap: nowrap;">
+    <div class="row pt-5 pb-5" style="flex-wrap: nowrap;">
 
       <div class="col-4 align-self-center">
         <img src="../../assets/sidebanner.png"
@@ -18,9 +19,11 @@
 
 
       <div class="col-8 " >
-        <form #matricula="ngForm"
-            (ngSubmit)="onSubmit()"
-            action="/matricula-doc"> <!--endereço para onde os dados serao enviados-->
+        <form
+        
+        #matricula="ngForm"
+        (ngSubmit)="onSubmit()"
+        action="/matricula-doc"> <!--endereço para onde os dados serao enviados-->
 
             <div class="row">
               <div class="col-12">
@@ -34,7 +37,7 @@
                 required
                 #name="ngModel">
 
-                <div [hidden]="name.valid|| name.pristine"
+                <div [hidden]="name.valid || name.pristine"
                  class="alert alert-danger">
                  Este campo é obrigatório!
                 </div>
@@ -56,10 +59,6 @@
                   required
                   #cpf="ngModel" ui-br-cpf-mask>
 
-                  <div [hidden]="cpf.valid || cpf.pristine"
-                  class="alert alert-danger">
-                  Este campo é obrigatório!
-                  </div>
 
                 </div>
               </div>
@@ -76,10 +75,6 @@
                     required
                     #rg="ngModel">
 
-                  <div [hidden]="rg.valid || rg.pristine"
-                  class="alert alert-danger">
-                  Este campo é obrigatório!
-                  </div>
                 </div>
               </div>
             </div>
@@ -98,10 +93,6 @@
                   required
                   #city="ngModel">
 
-                  <div [hidden]="city.valid || city.pristine"
-                  class="alert alert-danger">
-                  Este campo é obrigatório!
-                  </div>
                 </div>
               </div>
 
@@ -200,13 +191,9 @@
                   id="mail"
                   name="mail"
                   [(ngModel)]="aluno.mail"
-                  required
+
                   #mail="ngModel">
 
-                  <div [hidden]="mail.valid || mail.pristine"
-                     class="alert alert-danger">
-                    Este campo é obrigatório!
-                 </div>
 
                 </div>
               </div>
@@ -225,10 +212,6 @@
                  <option *ngFor="let c of courses" [value]="c">{{c}}</option>
                 </select>
 
-                <div [hidden]="course.valid || course.pristine"
-                       class="alert alert-danger">
-                    Course is required
-                </div>
 
               </div>
             </div>
